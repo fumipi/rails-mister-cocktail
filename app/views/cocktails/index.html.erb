@@ -1,18 +1,17 @@
-<h1>Cocktail#index</h1>
-<p>Find me in app/views/cocktail/index.html.erb</p>
-<div class = container>
-  <div class = "row">
+<%= render :partial => "./layouts/banner" %>
+<%= yield %>
 
-<% @cocktails.each do |cocktail| %>
-<div class = "col-sm-4">
-<div class = "card">
-  <h3><%= cocktail.name %></h3>
-  <%= link_to "See details", cocktail_path(cocktail.id) %>
-</div>
-</div>
-<% end %>
-
+<div class="container">
+  <div class="row")>
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) ),
+           url('https://c1.staticflickr.com/1/931/43871292851_8dcb6eafb9.jpg, height: 300, width: 400, crop: :fill')">
+            <h2 class="card-description"><%= cocktail.name %></h2>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-  </div>
-<%= link_to "Create a new cocktail", new_cocktail_path %>
-
+</div>
