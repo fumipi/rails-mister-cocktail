@@ -1,14 +1,14 @@
 <%= render :partial => "./layouts/banner" %>
 <%= yield %>
 
-<div class="container">
-  <div class="row")>
+<div class="container-index">
+  <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
         <%= link_to cocktail_path(cocktail) do %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) ),
+          <div class = "card" style="background-image: linear-gradient(rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) ),
            url('https://c1.staticflickr.com/1/931/43871292851_8dcb6eafb9.jpg, height: 300, width: 400, crop: :fill')">
-            <h2 class="card-description"><%= cocktail.name %></h2>
+            <p class="card-description"><%= cocktail.name %></p>
           </div>
         <% end %>
       </div>
