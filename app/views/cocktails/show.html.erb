@@ -1,14 +1,20 @@
 <div class = "container">
-<h1><%= @cocktail.name %> </h1>
+      <div class = "card" style="background-image: linear-gradient(rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) ),
+       url('<%= cl_image_path @cocktail.photo %>')">
+        <h2 class="card-description"><%= @cocktail.name %></h2>
+      </div>
+  <br>
+  <p> <i class="fa fa-heart"></i> Recipe <i class="fa fa-heart"></i></p>
   <ul>
   <% @cocktail.doses.each do |d|%>
-  <li><%= d.description %> of <%= d.ingredient.name %></li>
-  <li><%= button_to "Delete dose", dose_path(d), method: :delete %></li>
+  <li><%= d.description %> of <%= d.ingredient.name %>&nbsp;<%= button_to "Delete dose", dose_path(d), method: :delete %></li>
   <% end %>
   </ul>
+  <br>
+<%= link_to "Add some doses", new_cocktail_dose_path(@cocktail) %>
+<br>
+<%= link_to "Back to list", cocktails_path %>
 </div>
 
-<%= link_to "Add some doses", new_cocktail_dose_path(@cocktail) %>
-<%= link_to "Back to list", cocktails_path %>
 
 
