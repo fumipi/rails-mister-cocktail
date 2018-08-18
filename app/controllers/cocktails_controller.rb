@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CocktailsController < ApplicationController
   def index
     @cocktails = Cocktail.all
@@ -33,4 +35,3 @@ class CocktailsController < ApplicationController
     params.require(:cocktail).permit(:name, :ingredient, :dose, :photo)
   end
 end
-

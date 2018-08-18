@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -10,12 +12,12 @@ Dose.delete_all
 Ingredient.delete_all
 Cocktail.delete_all
 
-puts "creating seeds"
+puts 'creating seeds'
 
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
-Ingredient.create(name: "rhum")
-Ingredient.create(name: "water")
+Ingredient.create(name: 'lemon')
+Ingredient.create(name: 'ice')
+Ingredient.create(name: 'mint leaves')
+Ingredient.create(name: 'rhum')
+Ingredient.create(name: 'water')
 
-puts "seeds done!"
+puts 'seeds done!'
