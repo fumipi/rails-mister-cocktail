@@ -1,19 +1,18 @@
-<div class = "container">
-      <div class = "card" style="background-image: linear-gradient(rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) ),
+<div class = "card" style="background-image: linear-gradient(rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) ),
        url('<%= cl_image_path @cocktail.photo %>')">
-        <h2 class="card-description"><%= @cocktail.name %></h2>
-      </div>
+  <h2 class="card-description"><%= @cocktail.name %></h2>
+</div>
   <br>
   <p> <i class="fa fa-heart"></i> Recipe <i class="fa fa-heart"></i></p>
-  <ul>
+  <ul id = "doses">
   <% @cocktail.doses.each do |d|%>
-  <li><%= d.description %> of <%= d.ingredient.name %>&nbsp;<%= button_to "Delete dose", dose_path(d), method: :delete %></li>
+    <li data-dose-id="<%= d.id %>"><%= render 'doses/show', dose: d %>&nbsp;<%= link_to "Delete dose", dose_path(d), method: :delete,  remote: true %></li>
   <% end %>
   </ul>
-  <br>
-<%= link_to "Add some doses", new_cocktail_dose_path(@cocktail) %>
-<br>
-<%= link_to "Back to list", cocktails_path %>
+  <p><i class="fa fa-heart"></i>Add some doses<i class="fa fa-heart"></i></p>
+  <%= render 'doses/form', cocktail: @cocktail, dose: @dose %>
+  <%= link_to "Back to list", cocktails_path %>
+</div>
 </div>
 
 
