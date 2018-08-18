@@ -3,13 +3,13 @@
   <h2 class="card-description"><%= @cocktail.name %></h2>
 </div>
   <br>
-  <p> <i class="fa fa-heart"></i> Recipe <i class="fa fa-heart"></i></p>
+  <h3> <i class="fas fa-glass-martini"></i> Recipe </h3>
   <ul id = "doses">
   <% @cocktail.doses.each do |d|%>
     <li data-dose-id="<%= d.id %>"><%= render 'doses/show', dose: d %>&nbsp;<%= link_to "Delete dose", dose_path(d), method: :delete,  remote: true %></li>
   <% end %>
   </ul>
-  <p><i class="fa fa-heart"></i>Add some doses<i class="fa fa-heart"></i></p>
+  <h3><i class="fas fa-glass-martini"></i>Add some doses</h3>
   <%= render 'doses/form', cocktail: @cocktail, dose: @dose %>
 </div>
 </div>
