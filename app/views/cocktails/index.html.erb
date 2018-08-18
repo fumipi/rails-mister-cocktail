@@ -1,10 +1,10 @@
 <%= render :partial => "./layouts/banner" %>
 <%= yield %>
 
-<div class="container-index">
+<div class="container-index" style= "margin: 10px 15px">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-4" style= "margin: 15px 0px">
         <%= link_to cocktail_path(cocktail) do %>
           <div class = "card" style="background-image: linear-gradient(rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) ),
            url('<%= cl_image_path cocktail.photo %>')">
@@ -15,4 +15,3 @@
     <% end %>
   </div>
 </div>
-
