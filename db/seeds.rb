@@ -7,6 +7,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'json'
+require 'open-uri'
 
 Dose.delete_all
 Ingredient.delete_all
@@ -14,10 +16,13 @@ Cocktail.delete_all
 
 puts 'creating seeds'
 
-Ingredient.create(name: 'lemon')
-Ingredient.create(name: 'ice')
-Ingredient.create(name: 'mint leaves')
-Ingredient.create(name: 'rhum')
-Ingredient.create(name: 'water')
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredients_serialized = open(url).read
+ingredients = JSON.parse(ingredients_serialized)
+
+# beers is a ruby Hash
+ingredients["drinks"].each do |i|
+  Ingredient.create(name: i["strIngredient1"])
+end
 
 puts 'seeds done!'
